@@ -1,7 +1,6 @@
 import React from 'react';
 import CitySearch from './CitySearch.jsx'
 import Calendar from './Calendar.jsx'
-import SearchBarRecent from './SearchBarRecent.jsx'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -87,7 +86,6 @@ class SearchBar extends React.Component {
               <Calendar handleChange = {this.handleDepartureDate} description = "Departure"/>
               <Calendar handleChange = {this.handleReturnDate} description = "Return"/>
               <button type = 'submit' onClick = {this.handleSearchClick} >Search</button>
-              <SearchBarRecent histories={this.state.histories}/>
 
             </div>
         </form>
