@@ -225,7 +225,7 @@ th {
 .search-wrapper {
   font-family: 'Papyrus';
   background: rgba(0, 188, 212, .2);
-  border-radius: 20px;
+  border-radius: 15px;
   margin: 0 auto;
   padding: 5px;
   position: relative;
@@ -241,7 +241,6 @@ th {
   float: right;
   margin-top: -175px;
   margin-left: 0;
-  /*border: 1px solid black;*/
 }
 
 #title {
@@ -251,7 +250,6 @@ th {
   font-size: 200%;
   margin: 10px;
   text-align: left;
-  /* color: #00CED1; */
 }
 
 #quote {
@@ -262,7 +260,6 @@ th {
   margin-left: 400px;
   position: relative;
   text-align: center;
-  /* color: #00CED1; */
 }
 
 .panelHeader {
@@ -276,7 +273,6 @@ th {
   float: left;
   margin-right: 15px;
   margin-left: 15px;
-
 }
 
 .originating {
@@ -293,6 +289,7 @@ th {
   margin-right: 15px;
   margin-left: 15px;
 }
+
 .return {
   display: inline-block;
   position: static;
@@ -300,10 +297,17 @@ th {
   margin-left: 15px;
 }
 
+#savedTrips {
+  background-color: rgba(255, 255, 255, .85);
+}
+
+.save, .toggle {
+  color: #0E6666;
+}
+
 .subtext {
   color: grey;
 }
-
 
 .trash {
   float:right;
@@ -311,13 +315,6 @@ th {
   color: #0E6666;
 }
 
-.save, .toggle {
-  color: #0E6666;
-}
-
-#savedTrips {
-  background-color: rgba(255, 255, 255, .85);
-}
 
 .tileDesign_00 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
