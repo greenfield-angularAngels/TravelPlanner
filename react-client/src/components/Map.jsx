@@ -21,7 +21,7 @@ export default class Map extends React.Component {
   */
   componentWillMount() {
     if (!this.state.coords.lat) {
-      console.log('Invoked');
+      // console.log('Invoked');
       this.setState({
         // Paris
         coords: {
@@ -30,7 +30,7 @@ export default class Map extends React.Component {
         },
       });
     }
-    console.log('Normal');
+    // console.log('Normal');
     return;
   }
 

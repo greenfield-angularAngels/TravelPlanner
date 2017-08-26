@@ -67,8 +67,8 @@ class SearchBar extends React.Component {
           <div className="search-wrapper">
             <CitySearch handleChange={this.handleDepartureText} description="Departure City" />
             <CitySearch handleChange={this.handleArrivalText} description="Arrival City" />
-            <Calendar handleChange={this.handleDepartureDate} description="Departure" />
-            <Calendar handleChange={this.handleReturnDate} description="Return" />
+            <Calendar handleChange={this.handleDepartureDate} description="Departure " />
+            <Calendar handleChange={this.handleReturnDate} description="Return " />
             <RaisedButton
               label="Search"
               primary={true}

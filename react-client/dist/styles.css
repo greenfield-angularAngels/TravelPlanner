@@ -10,13 +10,52 @@ body {
   font-weight: normal;
 }
 
+img {
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(45, 45, 45, .2);
+}
+
 label {
   color: black;
   font-size: 14px;
 }
 
+td {
+  background-color: rgba(45, 45, 45, .3);
+  width: 20%;
+  border-left: 3px solid #EDECEC;
+  border-right: 3px solid #EDECEC;
+  border-bottom: 3px solid #EDECEC;
+}
+
+th {
+  align: center;
+  color: rgba(45, 45, 45, .9);
+  font-size: 120%;
+}
+
+.attrBackground{
+  background-color: rgba(45, 45, 45, 0);
+}
+
+.activeAttr{
+  background-color: rgba(0, 128, 96, 0.4);
+}
+
+.avoid-clicks {
+  pointer-events: none;
+}
+
+.carrierLogo {
+  box-shadow: none;
+  max-width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+
 .date-wrapper {
-  /* font-family: 'Papyrus'; */
+  font-family: 'Papyrus';
+  text-align: center;
   position: relative;
   margin: 0 20px;
   display: inline-block;
@@ -27,6 +66,8 @@ label {
     padding-top: 10px;
   }
   .input {
+    font-family: 'Papyrus';
+    text-align: center;
     font-size: 15px;
     color: #333;
     max-width: 172px;
@@ -48,6 +89,75 @@ label {
     background-repeat: no-repeat;
     background-size: 36px 36px;
   }
+}
+
+.flightHighlight {
+  background-color: rgba(0, 188, 212, 0.4);
+}
+
+#foodtype {
+  margin-left: 7%;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.hotelHighlight{
+  background-color: rgba(0, 128, 96, 0.4);
+}
+
+.hotelHighlightSean{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: grayscale(0%);
+  border: 10px solid red;
+}
+
+.itemBorder {
+  border-radius: 0px;
+  border: 1px solid rgba(128, 128, 128, 0.18);
+  padding: 10px;
+  width: 98%;
+  height: 95px;
+  margin-bottom:10px;
+  margin-left: 10px;
+}
+
+.itemBorder:hover {
+    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.itemBorderSean {
+  border-radius: 0px;
+  border: 1px solid rgba(128, 128, 128, 0.18);
+  padding: 10px;
+  width: 900px;
+  height: 100px;
+  margin-bottom:10px;
+  margin-left: 10px;
+}
+
+.itemBorderSean:hover {
+    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.1);
+}
+
+#itemBorder {
+  border-radius: 10px;
+  border: 1px 0.5px 1px 0.5px solid;
+  border-color: #f2f2f2;
+  padding: 20px;
+  width: 250px;
+  height: 300px;
+  margin-bottom:0px;
 }
 
 .input-text {
@@ -96,50 +206,13 @@ label {
   }
 }
 
-.hide-text {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.hotelHighlight{
-  background-color: rgba(0, 128, 96, 0.4);
-}
-
-.hotelHighlightSean{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  filter: grayscale(0%);
-  border: 10px solid red;
-}
-
-.attrBackground{
-  background-color: rgba(45, 45, 45, 0);
-}
-
-.activeAttr{
-  background-color: rgba(0, 128, 96, 0.4);
-}
-
-.avoid-clicks {
-  pointer-events: none;
-}
-
-.flightHighlight {
-  background-color: rgba(0, 188, 212, 0.4);
-}
-
 .nav {
   display: block;
   width:100%;
 }
 
 .search {
+  font-family: 'Papyrus';
   display: inline-block;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -150,6 +223,7 @@ label {
 }
 
 .search-wrapper {
+  font-family: 'Papyrus';
   background: rgba(0, 188, 212, .2);
   border-radius: 20px;
   margin: 0 auto;
@@ -170,113 +244,30 @@ label {
   /*border: 1px solid black;*/
 }
 
-td {
-  background-color: rgba(45, 45, 45, .3);
-  width: 20%;
-  border-left: 3px solid #EDECEC;
-  border-right: 3px solid #EDECEC;
-  border-bottom: 3px solid #EDECEC;
-}
-
-th {
-  align: center;
-  color: rgba(45, 45, 45, .9);
-  font-size: 120%;
-}
-
-.itemBorder {
-  border-radius: 0px;
-  border: 1px solid rgba(128, 128, 128, 0.18);
-  padding: 10px;
-  width: 98%;
-  height: 95px;
-  margin-bottom:10px;
-  margin-left: 10px;
-}
-
-.itemBorder:hover {
-    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.itemBorderSean {
-  border-radius: 0px;
-  border: 1px solid rgba(128, 128, 128, 0.18);
-  padding: 10px;
-  width: 900px;
-  height: 100px;
-  margin-bottom:10px;
-  margin-left: 10px;
-}
-
-.itemBorderSean:hover {
-    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.1);
-}
-
-#itemBorder {
-  border-radius: 10px;
-  border: 1px 0.5px 1px 0.5px solid;
-  border-color: #f2f2f2;
-  padding: 20px;
-  width: 250px;
-  height: 300px;
-  margin-bottom:0px;
-}
-
-img {
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px rgba(45, 45, 45, .2);
-}
-
-.carrierLogo {
-  box-shadow: none;
-  max-width: 50px;
-  height: 50px;
-  margin-top: 10px;
-}
-
 #title {
+  color:rgba(45,45,45,0.9);
+  display: inline-block;
   font-family: 'Papyrus';
   font-size: 200%;
-  display: inline-block;
-  text-align: left;
   margin: 10px;
+  text-align: left;
   /* color: #00CED1; */
-  color:rgba(45,45,45,0.9);
 }
 
 #quote {
   color:rgba(45,45,45,0.9);
+  display: inline-block;
   font-family: 'Papyrus';
   font-size: 150%;
-  display: inline-block;
   margin-left: 400px;
   position: relative;
   text-align: center;
   /* color: #00CED1; */
 }
 
-#foodtype {
-  margin-left: 7%;
-}
-
 .panelHeader {
   display: inline-block;
   color: black;
-}
-
-.trash {
-  float:right;
-  margin-top: -12%;
-  color: #0E6666;
-}
-
-.save, .toggle {
-  color: #0E6666;
-}
-
-#savedTrips {
-  background-color: rgba(255, 255, 255, .85);
 }
 
 .logo {
@@ -295,13 +286,6 @@ img {
   margin-left: 15px;
 }
 
-.return {
-  display: inline-block;
-  position: static;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
 .price {
   display: inline-block;
   position: static;
@@ -309,9 +293,30 @@ img {
   margin-right: 15px;
   margin-left: 15px;
 }
+.return {
+  display: inline-block;
+  position: static;
+  margin-right: 15px;
+  margin-left: 15px;
+}
 
 .subtext {
   color: grey;
+}
+
+
+.trash {
+  float:right;
+  margin-top: -12%;
+  color: #0E6666;
+}
+
+.save, .toggle {
+  color: #0E6666;
+}
+
+#savedTrips {
+  background-color: rgba(255, 255, 255, .85);
 }
 
 .tileDesign_00 {

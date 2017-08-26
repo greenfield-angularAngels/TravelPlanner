@@ -11,7 +11,9 @@ class Calendar extends React.Component {
             hintText={this.props.description + 'Date'}
             mode="landscape"
             autoOk={true}
-            onChange={(e, newVal) => { this.props.handleChange(newVal.toISOString().slice(0, 10)) }}
+            onChange={(e, newVal) => {
+              this.props.handleChange(newVal.toISOString().slice(0, 10))
+            }}
           />
         </div>
       </div>
