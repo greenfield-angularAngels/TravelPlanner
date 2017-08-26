@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Router, browserHistory, IndexRoute } from 'react-router';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -12,9 +13,15 @@ import Hotels from './components/Hotels.jsx'
 import Map from './components/Map.jsx';
 import Weather from './components/Weather.jsx';
 import SavedTrips from './components/savedTrips.jsx';
+<<<<<<< HEAD
 import SearchBar from './components/SearchBar.jsx';
 import TabMenu from './components/TabMenu.jsx';
 import TabsForTripSumAndSave from './components/TabsForTripSumAndSave.jsx';
+=======
+// import Login from './components/Login.jsx';
+const FlightAPI = require('qpx-express');
+import axios from 'axios';
+>>>>>>> Adds Facebook login and logout features
 
 const boxGenFile = require('./boxGenerator.js');
 const makeBoxWiBoder = boxGenFile.makeBoxWiBoder;
@@ -83,11 +90,21 @@ class App extends React.Component {
       error: (err) => {
         console.log('error !')
       }
+<<<<<<< HEAD
     });
   }
 
   handleHotelClick(hotel, event) {
     this.removeClass('tileDesignChosen');
+=======
+    })
+  }
+
+  handleHotelClick(hotel, event) {
+    console.log(hotel.url);
+
+    this.removeClass('hotelHighlight');
+>>>>>>> Adds Facebook login and logout features
     if (this.state.selectedHotelId === hotel.id) {
       this.state.savedChoices[0].hotel = {};
       delete this.state.selectedHotelId;
@@ -130,7 +147,11 @@ class App extends React.Component {
       }
     };
     var context = this;
+<<<<<<< HEAD
     qpx.getInfo(body, function(error, data) {
+=======
+    qpx.getInfo(body, function (error, data) {
+>>>>>>> Adds Facebook login and logout features
       context.setState({
         flights: data.trips.tripOption
       })
@@ -151,7 +172,7 @@ class App extends React.Component {
       method: "POST"
     })
       .then((resp) => resp.json())
-      .then(function(data) {
+      .then(function (data) {
         if (data.airports[0].name.includes('All Airports')) {
           codes.departLoc = data.airports[1].iata;
         } else {
@@ -168,7 +189,11 @@ class App extends React.Component {
           method: "POST"
         })
           .then((resp) => resp.json())
+<<<<<<< HEAD
           .then(function(data) {
+=======
+          .then(function (data) {
+>>>>>>> Adds Facebook login and logout features
             if (data.airports[0].name.includes('All Airports')) {
               codes.arrivalLoc = data.airports[1].iata;
             } else {
@@ -190,7 +215,11 @@ class App extends React.Component {
               method: "POST"
             })
               .then((resp) => resp.json())
+<<<<<<< HEAD
               .then(function(data) {
+=======
+              .then(function (data) {
+>>>>>>> Adds Facebook login and logout features
                 if (data.airports[0].name.includes('All Airports')) {
                   codes.arrivalLoc = data.airports[1].iata;
                 } else {
@@ -267,7 +296,11 @@ class App extends React.Component {
         food: [],
         weather: {}
       }]
+<<<<<<< HEAD
     }, function() {
+=======
+    }, function () {
+>>>>>>> Adds Facebook login and logout features
       this.yelpAttrSearch();
       this.searchFood();
       this.getAirportCodes(departureLocation, arrivalLocation);
@@ -304,15 +337,24 @@ class App extends React.Component {
       type: 'POST',
       data: { location: this.state.arrivalLocation },
       success: (res) => {
+<<<<<<< HEAD
         const parsedAttr = JSON.parse(res);
         const addAttrAddress = this.state.addresses
           .concat(parsedAttr.map(this.responseToSaveAddress('attraction')));
+=======
+
+        const parsedAttr = JSON.parse(res);
+
+        const addAttrAddress = this.state.addresses
+          .concat(parsedAttr.map(this.responseToSaveAddress('attraction')));
+
+>>>>>>> Adds Facebook login and logout features
         this.setState({
           attrItems: parsedAttr,
           addresses: addAttrAddress
         });
       },
-      error: function(data) {
+      error: function (data) {
       }
     })
   }
@@ -323,10 +365,19 @@ class App extends React.Component {
       data: { location: this.state.arrivalLocation },
       type: 'POST',
       success: (res) => {
+<<<<<<< HEAD
         const parsedFood = JSON.parse(res);
         const addFoodAddress = this.state.addresses
           .concat(parsedFood.map(this.responseToSaveAddress('food')));
         // console.log('post food req: ', parsedFood);
+=======
+
+        const parsedFood = JSON.parse(res);
+
+        const addFoodAddress = this.state.addresses
+          .concat(parsedFood.map(this.responseToSaveAddress('food')));
+
+>>>>>>> Adds Facebook login and logout features
         this.setState({
           foodList: parsedFood,
           addresses: addFoodAddress
@@ -355,7 +406,11 @@ class App extends React.Component {
   }
 
   responseToSaveAddress(category) {
+<<<<<<< HEAD
     return function({ name, location, coordinates }) {
+=======
+    return function ({ name, location, coordinates }) {
+>>>>>>> Adds Facebook login and logout features
       const display_address = location.display_address;
       return {
         category,
@@ -373,14 +428,22 @@ class App extends React.Component {
       method: "POST",
       url: "/weather",
       data: { location: city, date: date },
+<<<<<<< HEAD
       success: function(data) {
+=======
+      success: function (data) {
+>>>>>>> Adds Facebook login and logout features
         var parsedData = JSON.parse(data);
         context.setState({
           weather: [parsedData],
           weatherIcon: parsedData.icon
         })
       },
+<<<<<<< HEAD
       error: function(err) {
+=======
+      error: function (err) {
+>>>>>>> Adds Facebook login and logout features
         console.log('error in requesting data.')
       }
     })
@@ -390,6 +453,7 @@ class App extends React.Component {
     this.updateSavedChoices('attractions', e.props.attrItemEntry, e.state.selected);
   }
 
+<<<<<<< HEAD
   handleFoodItemState(e, fooditem, selected) {
     this.updateSavedChoices('food', fooditem, selected);
   }
@@ -397,12 +461,20 @@ class App extends React.Component {
   updateSavedChoices(categoryName, itemData, selected) {
     console.log('slected: ', selected);
     console.log('itemData:', itemData)
+=======
+  handleFoodItemState(e) {
+    this.updateSavedChoices('food', e.props.fooditem, e.state.selected);
+  }
+
+  updateSavedChoices(categoryName, itemData, selected) {
+>>>>>>> Adds Facebook login and logout features
     let list = this.state.savedChoices[0][categoryName];
     if (list === undefined) {
       return;
     }
 
     var selectItem = {};
+<<<<<<< HEAD
     selectItem.name = itemData.name;
     selectItem.address = itemData.location.display_address.join(', ');
     selectItem.price = itemData.price;
@@ -427,6 +499,20 @@ class App extends React.Component {
         }
       }
       // console.log('index:', index)
+=======
+
+    if (selected) {
+      selectItem.name = itemData.name;
+      selectItem.address = itemData.location.display_address.join(', ');
+      selectItem.price = itemData.price;
+      selectItem.image_url = itemData.image_url;
+      selectItem.category = itemData.categories[0].title;
+
+      list.push(selectItem);
+    }
+    else {
+      let index = list.indexOf(selectItem);
+>>>>>>> Adds Facebook login and logout features
       if (index >= 0) {
         list.splice(index, 1);
       }
@@ -443,7 +529,7 @@ class App extends React.Component {
       success: (data) => {
         context.setState({
           savedTrips: data
-        }, function() {
+        }, function () {
         })
       },
       error: () => {
@@ -460,7 +546,7 @@ class App extends React.Component {
       data: { uniqueID: uniqueID },
       success: () => {
         context.retrieveFromDatabase();
-      }, error: function() {
+      }, error: function () {
         console.log('client received an error when attempting to remove from db');
       }
     });
@@ -469,6 +555,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <h1 id='title'>Wanderly</h1>
 
         <MuiThemeProvider>
@@ -565,9 +652,84 @@ class App extends React.Component {
           </div>
 
         </div>
+=======
+        <a className="pull-right" href="/logout">Logout</a>
+        <h1 id='title'>Wanderly</h1>
+        <a> </a>
+        <span><SearchBar onSearch={this.onSearch} /></span>
+        <Weather information={this.state.weather} icon={this.state.weatherIcon} />
+
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>Flights</th>
+              <th>Lodging</th>
+              <th>Attractions</th>
+              <th>Restaurants</th>
+              <th>Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Flights handleFlightClick={this.handleFlightClick.bind(this)} flights={this.state.flights} />
+              </td>
+              <td>
+                <Hotels handleHotelClick={this.handleHotelClick.bind(this)} hotels={this.state.hotels} />
+              </td>
+              <td>
+                <Attraction attrItems={this.state.attrItems} handleAttrItemState={this.handleAttrItemState.bind(this)} />
+              </td>
+              <td>
+                <FoodList foodlist={this.state.foodList} handleFoodItemState={this.handleFoodItemState.bind(this)} />
+              </td>
+              <td id="savedTrips">
+                <SavedTrips trips={this.state.savedTrips} remove={this.removeSingleDatabaseRecord} save={this.saveToDatabase} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+>>>>>>> Adds Facebook login and logout features
       </div>
     )
   }
 }
 
+<<<<<<< HEAD
 ReactDOM.render(<App />, document.getElementById('app'));
+=======
+function isLoggedIn(nextState, replace, cb) {
+  axios.get('/loggedin')
+    .then(res => {
+      if (res.data === "") {
+        replace('/login');
+      }
+      cb();
+    })
+    .catch(err => {
+      cb();
+    });
+}
+
+function redirectToLogin() {
+  window.location.href = '/login';
+}
+
+const Login = () => {
+  return (
+    <a href='auth/facebook'>Login With Facebook</a>
+  )
+}
+
+const routes = (
+  <Router history={browserHistory}>
+    <Route path="/" component={App} onEnter={isLoggedIn} />
+    <Route path="/login" component={Login} />
+    <Route path="*" onEnter={redirectToLogin} />
+  </Router>
+);
+
+ReactDOM.render(
+  routes
+  , document.getElementById('app'));
+>>>>>>> Adds Facebook login and logout features

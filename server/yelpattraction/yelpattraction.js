@@ -8,6 +8,7 @@ var searchAttr = function(searchCity, callback) {
   const clientSecret = yelpConfig.clientSecret;
 
   const token = yelp.accessToken(clientId, clientSecret).then(response => {
+
     // console.log('TOKEN ', response.jsonBody.access_token);
   }).catch(e => {
     console.log('ERROR ', e);
