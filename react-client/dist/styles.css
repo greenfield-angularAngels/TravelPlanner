@@ -3,51 +3,61 @@
 }
 
 body {
+  color: #333;
+  background: url("backpack.jpg") no-repeat center center fixed;
   padding: 2em;
-  font-family: Arial, sans-serif;
+  font-family: 'Papyrus';
   font-weight: normal;
-  color: #333;
-     /* background: url("backpack.jpg") no-repeat center center fixed;     */
-     background-color: white;   
- /* -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover; */
-
 }
 
-.search-wrapper {
-/*  background: rgba(0, 188, 212, .2);
-  padding: 1em 1em 0em 1em;*/
-  text-align: center;
-  margin: 0 auto;
-  position: relative;
-  width:80%;
-}
-
-.input-text {
-  background-color: #ffffff;
-  padding: 2px 10px;
-  color: #333;
-  border: 1px solid #dddddd;
-  outline: none;
-  vertical-align: middle;
-  height: 36px;
-  border-radius: 0;
-  display: block;
-  width: 100%;
-  -webkit-appearance: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
+img {
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(45, 45, 45, .2);
 }
 
 label {
   color: black;
   font-size: 14px;
 }
+
+td {
+  background-color: rgba(45, 45, 45, .3);
+  width: 20%;
+  border-left: 3px solid #EDECEC;
+  border-right: 3px solid #EDECEC;
+  border-bottom: 3px solid #EDECEC;
+}
+
+th {
+  align: center;
+  color: rgba(45, 45, 45, .9);
+  font-size: 120%;
+}
+
+.attrBackground{
+  background-color: rgba(45, 45, 45, 0);
+}
+
+.activeAttr{
+  background-color: rgba(0, 128, 96, 0.4);
+}
+
+.avoid-clicks {
+  pointer-events: none;
+}
+
+.carrierLogo {
+  box-shadow: none;
+  max-width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+
 .date-wrapper {
+  font-family: 'Papyrus';
+  text-align: center;
   position: relative;
-  margin: 0 20px 10px 20px;
+  margin: 0 20px;
   display: inline-block;
   .label {
     float: left;
@@ -56,6 +66,8 @@ label {
     padding-top: 10px;
   }
   .input {
+    font-family: 'Papyrus';
+    text-align: center;
     font-size: 15px;
     color: #333;
     max-width: 172px;
@@ -79,43 +91,24 @@ label {
   }
 }
 
-.pika-single {
-  position: absolute;
-  top: 40px;
-  left: 0px;
-  .pika-title {
-    color: #444;
-  }
-  .is-selected .pika-button {
-    border-radius: 0;
-    box-shadow: none;
-    background: #ec0000;
-  }
-  .pika-table tbody td {
-    border: 1px solid #b9b9b9;
-  }
-  .pika-button:hover {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: #868686 !important;
-  }
-  .is-today .pika-button {
-    color: #ec0000;
-  }
-  .is-today.is-selected .pika-button {
-    color: #fff;
-  }
+.flightHighlight {
+  background-color: rgba(0, 188, 212, 0.4);
+}
+
+#foodtype {
+  margin-left: 7%;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .hide-text {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-}
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .hotelHighlight{
@@ -126,64 +119,6 @@ label {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   filter: grayscale(0%);
   border: 10px solid red;
-}
-
-
-
-.attrBackground{
-  background-color: rgba(45, 45, 45, 0);
-}
-
-.activeAttr{
-  background-color: rgba(0, 128, 96, 0.4);
-}
-
-.avoid-clicks {
-  pointer-events: none;
-}
-
-.flightHighlight {
-  background-color: rgba(0, 188, 212, 0.4);
-}
-
-
-.nav {
-  display: block;
-  width:100%;
-}
-
-.search {
-  position: relative;
-  display: inline-block;
-  width:100%;
-  padding-bottom: 50px;
-  margin: 0 auto;
-}
-
-.weather {
-  position: relative;
-  text-align: center;
-  width:10%;
-  height:100px;
-  float: left;
-  margin-top: -220px;
-  margin-left: 0;
-
-  /*border: 1px solid black;*/
-}
-
-td {
-  background-color: rgba(45, 45, 45, .3);
-  width: 20%;
-  border-left: 3px solid #EDECEC;
-  border-right: 3px solid #EDECEC;
-  border-bottom: 3px solid #EDECEC;
-}
-
-th {
-  align: center;
-  color: rgba(45, 45, 45, .9);
-  font-size: 120%;
 }
 
 .itemBorder {
@@ -218,53 +153,118 @@ th {
 #itemBorder {
   border-radius: 10px;
   border: 1px 0.5px 1px 0.5px solid;
-  border-color: #f2f2f2
+  border-color: #f2f2f2;
   padding: 20px;
   width: 250px;
   height: 300px;
   margin-bottom:0px;
 }
 
-img {
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px rgba(45, 45, 45, .2);
+.input-text {
+  font-family: 'Papyrus';
+  background-color: #ffffff;
+  padding: 2px 10px;
+  text-align: center;
+  color: #333;
+  border: 1px solid #dddddd;
+  outline: none;
+  vertical-align: middle;
+  height: 36px;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
 
-.carrierLogo {
-  box-shadow: none;
-  max-width: 50px;
-  height: 50px;
-  margin-top: 10px;
+.pika-single {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  .pika-title {
+    color: #444;
+  }
+  .is-selected .pika-button {
+    border-radius: 0;
+    box-shadow: none;
+    background: #ec0000;
+  }
+  .pika-table tbody td {
+    border: 1px solid #b9b9b9;
+  }
+  .pika-button:hover {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #868686 !important;
+  }
+  .is-today .pika-button {
+    color: #ec0000;
+  }
+  .is-today.is-selected .pika-button {
+    color: #fff;
+  }
+}
+
+.nav {
+  display: block;
+  width:100%;
+}
+
+.search {
+  font-family: 'Papyrus';
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.search-wrapper {
+  font-family: 'Papyrus';
+  background: rgba(0, 188, 212, .2);
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  width: 80%;
+}
+
+.weather {
+  position: relative;
+  text-align: center;
+  width:10%;
+  height:100px;
+  float: right;
+  margin-top: -175px;
+  margin-left: 0;
 }
 
 #title {
-  font-family: 'Shrikhand', cursive;
-  font-size: 530%;
-  text-align: center;
   color:rgba(45,45,45,0.9);
+  display: inline-block;
+  font-family: 'Papyrus';
+  font-size: 200%;
+  margin: 10px;
+  text-align: left;
 }
 
-#foodtype {
-  margin-left: 7%;
+#quote {
+  color:rgba(45,45,45,0.9);
+  display: inline-block;
+  font-family: 'Papyrus';
+  font-size: 150%;
+  margin-left: 400px;
+  position: relative;
+  text-align: center;
 }
 
 .panelHeader {
   display: inline-block;
   color: black;
-}
-
-.trash {
-  float:right;
-  margin-top: -12%;
-  color: #0E6666;
-}
-
-.save, .toggle {
-  color: #0E6666;
-}
-
-#savedTrips {
-  background-color: rgba(255, 255, 255, .85);
 }
 
 .logo {
@@ -273,17 +273,9 @@ img {
   float: left;
   margin-right: 15px;
   margin-left: 15px;
-
 }
 
 .originating {
-  display: inline-block;
-  position: static;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-.return {
   display: inline-block;
   position: static;
   margin-right: 15px;
@@ -298,9 +290,31 @@ img {
   margin-left: 15px;
 }
 
+.return {
+  display: inline-block;
+  position: static;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+#savedTrips {
+  background-color: rgba(255, 255, 255, .85);
+}
+
+.save, .toggle {
+  color: #0E6666;
+}
+
 .subtext {
   color: grey;
 }
+
+.trash {
+  float:right;
+  margin-top: -12%;
+  color: #0E6666;
+}
+
 
 .tileDesign_00 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

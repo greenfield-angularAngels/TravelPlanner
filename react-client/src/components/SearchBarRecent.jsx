@@ -8,19 +8,17 @@ class SearchBarRecent extends React.Component {
     this.state = {
       history: []
     }
-
     this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
-
-    handleSearchClick(e) {
-      e.preventDefault();
-      this.props.onSearch();
-    }
+  handleSearchClick(e) {
+    e.preventDefault();
+    this.props.onSearch();
+  }
 
   render() {
-    return(
-      <div className = 'search'>
+    return (
+      <div className='search'>
 
       </div>
     )

@@ -1,5 +1,10 @@
 var request = require('request');
-var config = require('../../config.js');
+var config;
+try {
+  config = require('../../config.js');
+} catch (e) {
+  config = undefined;
+}
 
 var requestGeolocation = function(location, callback) {
   var key = process.env.GEO_API || config.geolocationAPI;

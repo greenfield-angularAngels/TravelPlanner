@@ -2,7 +2,7 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 import Flights from './Flights.jsx';
-import Hotels from './Hotels.jsx';
+import Hotels from './hotels.jsx';
 import Attractions from './Attraction.jsx';
 import FoodList from './FoodList.jsx';
 

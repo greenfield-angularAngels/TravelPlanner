@@ -3,7 +3,6 @@ import CitySearch from './CitySearch.jsx'
 import Calendar from './Calendar.jsx'
 import RaisedButton from 'material-ui/RaisedButton';
 
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -19,31 +18,30 @@ class SearchBar extends React.Component {
     this.handleDepartureDate = this.handleDepartureDate.bind(this);
     this.handleReturnDate = this.handleReturnDate.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
-
   }
 
   handleDepartureText(e) {
     this.setState({
       departureLocation: e.target.value
-    })
+    });
   }
 
   handleArrivalText(e) {
     this.setState({
       arrivalLocation: e.target.value
-    })
+    });
   }
 
   handleDepartureDate(date) {
     this.setState({
       departureDate: date
-    })
+    });
   }
 
   handleReturnDate(date) {
     this.setState({
       returnDate: date
-    })
+    });
   }
 
   handleSearchClick(e) {
@@ -62,39 +60,20 @@ class SearchBar extends React.Component {
     }
   }
 
-
-  // handleSearchClickHistory(e) {
-
-  //   e.preventDefault();
-
-  //   var inputs = [this.state.departureLocation, this.state.arrivalLocation, this.state.departureDate, this.state.returnDate];
-
-  //   var newHistories = this.state.histories.slice();
-  //   newHistories.unshift(inputs);
-
-  //   this.setState({histories: newHistories});
-
-  // }
-
-
-
   render() {
     return (
       <div className='search'>
-        <form >
+        <form>
           <div className="search-wrapper">
-
             <CitySearch handleChange={this.handleDepartureText} description="Departure City" />
             <CitySearch handleChange={this.handleArrivalText} description="Arrival City" />
-            <Calendar handleChange={this.handleDepartureDate} description="Departure" />
-            <Calendar handleChange={this.handleReturnDate} description="Return" />
-
-            <RaisedButton 
-              label="Search" 
-              primary={true} 
+            <Calendar handleChange={this.handleDepartureDate} description="Departure " />
+            <Calendar handleChange={this.handleReturnDate} description="Return " />
+            <RaisedButton
+              label="Search"
+              primary={true}
               onClick={this.handleSearchClick}
             />
-
           </div>
         </form>
       </div>

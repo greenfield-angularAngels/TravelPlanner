@@ -1,10 +1,16 @@
 const yelp = require('yelp-fusion');
 const request = require('request');
-const yelpConfig = require('../../config.js');
+
+var config;
+try {
+  config = require('../../config.js');
+} catch (e) {
+  config = undefined;
+}
 
 var hotel = function(info, callback) {
 
-  var yelpToken = process.env.YELP_TOKEN || yelpConfig.yelpToken;
+  var yelpToken = process.env.YELP_TOKEN || config.yelpToken;
   const client = yelp.client(yelpToken);
 
   var p1 = new Promise(

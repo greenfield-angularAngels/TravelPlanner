@@ -1,23 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Router, browserHistory, IndexRoute } from 'react-router';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Attraction from './components/Attraction.jsx';
-import config from '../../config.js';
+
+var config;
+try {
+  config = require('../../config.js');
+} catch (e) {
+  config = undefined;
+}
+
 import Flights from './components/Flights.jsx';
 const FlightAPI = require('qpx-express');
 import FoodList from './components/FoodList.jsx';
-import Hotels from './components/Hotels.jsx'
+import Hotels from './components/hotels.jsx'
 import Map from './components/Map.jsx';
 import Weather from './components/Weather.jsx';
 import SavedTrips from './components/savedTrips.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import TabMenu from './components/TabMenu.jsx';
 import TabsForTripSumAndSave from './components/TabsForTripSumAndSave.jsx';
+// import Login from './components/Login.jsx';
+import axios from 'axios';
 
 const boxGenFile = require('./boxGenerator.js');
-const makeBoxWiBoder = boxGenFile.makeBoxWiBoder;
+// const makeBoxWiBoder = boxGenFile.makeBoxWiBoder;
 const makeBoxWiNoBoder = boxGenFile.makeBoxWiNoBoder;
 
 class App extends React.Component {
@@ -88,6 +98,7 @@ class App extends React.Component {
 
   handleHotelClick(hotel, event) {
     this.removeClass('tileDesignChosen');
+
     if (this.state.selectedHotelId === hotel.id) {
       this.state.savedChoices[0].hotel = {};
       delete this.state.selectedHotelId;
@@ -130,6 +141,7 @@ class App extends React.Component {
       }
     };
     var context = this;
+
     qpx.getInfo(body, function(error, data) {
       context.setState({
         flights: data.trips.tripOption
@@ -470,6 +482,7 @@ class App extends React.Component {
     return (
       <div>
         <h1 id='title'>Wanderly</h1>
+        <h2 id='quote'>"Travel Where Your Heart Desires"</h2>
 
         <MuiThemeProvider>
           <span><SearchBar onSearch={this.onSearch} /></span>
@@ -477,9 +490,9 @@ class App extends React.Component {
 
         <Weather information={this.state.weather} icon={this.state.weatherIcon} />
 
-        <div style={makeBoxWiBoder('TabAndMapBox', '100%', 800, 'red')}>
+        <div style={makeBoxWiNoBoder('TabAndMapBox', '100%', 800)}>
 
-          <div style={makeBoxWiBoder('TabMenu', '65%', '100%', 'red')}>
+          <div style={makeBoxWiNoBoder('TabMenu', '65%', '100%')}>
             <MuiThemeProvider>
               <TabMenu
                 handleFlightClick={this.handleFlightClick.bind(this)}
@@ -492,10 +505,8 @@ class App extends React.Component {
                 foodlist={this.state.foodList}
               />
             </MuiThemeProvider>
-            {/* {console.log('supposed to be foodlist: ', this.state.foodList)} */}
-            {/* {console.log('supposed to be hotels: ', this.state.hotels)} */}
-            <table className='table'>
-{/*               
+
+             {/* <table className='table'>
               <thead>
                 <tr>
                   <th>Flights</th>
@@ -528,19 +539,14 @@ class App extends React.Component {
                   </td>
                 </tr>
               </tbody>
-*/}
-            </table>
-          </div>
 
-          <div style={makeBoxWiBoder('TabAndMapBox', '2.5%', '100%', 'red')}></div>
+            </table> */}
+          </div> 
 
-          <div style={makeBoxWiBoder('MapContainer', '32.5%', '100%')}>
+          <div style={makeBoxWiNoBoder('TabAndMapBox', '2.5%', '100%')}></div>
 
-            {/* <div style={generateBox('l', '100%', '10%', 'red')}></div> */}
-
-            {/* <div style={generateBox('l', '100%', '2.5%', 'red')}/> */}
-
-            <div style={makeBoxWiBoder('MAP', '100%', '50%', 'green')}><h2>
+          <div style={makeBoxWiNoBoder('MapContainer', '32.5%', '100%')}>
+            <div style={makeBoxWiNoBoder('MAP', '100%', '50%')}><h2>
               <Map
                 coords={this.state.coords}
                 saved={this.state.savedChoices}
@@ -550,26 +556,58 @@ class App extends React.Component {
               />
             </h2>
             </div>
-            <div style={makeBoxWiBoder('marginBtwMapAnd', '100%', '2%', 'red')} />
+            <div style={makeBoxWiNoBoder('marginBtwMapAnd', '100%', '2%')} />
 
-            <div style={makeBoxWiBoder('TabMenuForTripSumAndSave', '100%', '48%', '')}>
+            <div style={makeBoxWiNoBoder('TabMenuForTripSumAndSave', '100%', '48%')}>
               <MuiThemeProvider>
-
                 <TabsForTripSumAndSave
                   trips={this.state.savedTrips}
                   remove={this.removeSingleDatabaseRecord}
                   save={this.saveToDatabase}
                 />
-
               </MuiThemeProvider>
             </div>
-
           </div>
-
         </div>
       </div>
     )
   }
 }
 
+function isLoggedIn(nextState, replace, cb) {
+  axios.get('/loggedin')
+    .then(res => {
+      if (res.data === "") {
+        replace('/login');
+      }
+      cb();
+    })
+    .catch(err => {
+      cb();
+    });
+}
+
+function redirectToLogin() {
+  window.location.href = '/login';
+}
+
+const Login = () => {
+  return (
+    <a href='auth/facebook'>Login With Facebook</a>
+  )
+}
+
+const routes = (
+  <Router history={browserHistory}>
+    <Route path="/" component={App} onEnter={isLoggedIn} />
+    <Route path="/login" component={Login} />
+    <Route path="*" onEnter={redirectToLogin} />
+  </Router>
+);
+
+// ReactDOM.render(
+//   routes
+//   , document.getElementById('app'));
+
 ReactDOM.render(<App />, document.getElementById('app'));
+
