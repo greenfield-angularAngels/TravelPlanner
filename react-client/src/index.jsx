@@ -387,7 +387,7 @@ class App extends React.Component {
   }
 
   handleAttrItemState(e) {
-    this.updateSavedChoices('attractions', e.props.attrItemEntry, e.state.selected);
+    this.updateSavedChoices('attractions', e.props.attrItem, e.state.selected);
   }
 
   handleFoodItemState(e, fooditem, selected) {
@@ -395,8 +395,8 @@ class App extends React.Component {
   }
 
   updateSavedChoices(categoryName, itemData, selected) {
-    console.log('slected: ', selected);
-    console.log('itemData:', itemData)
+    // console.log('slected: ', selected);
+    // console.log('itemData:', itemData)
     let list = this.state.savedChoices[0][categoryName];
     if (list === undefined) {
       return;
@@ -495,6 +495,7 @@ class App extends React.Component {
             {/* {console.log('supposed to be foodlist: ', this.state.foodList)} */}
             {/* {console.log('supposed to be hotels: ', this.state.hotels)} */}
             <table className='table'>
+{/*               
               <thead>
                 <tr>
                   <th>Flights</th>
@@ -527,6 +528,7 @@ class App extends React.Component {
                   </td>
                 </tr>
               </tbody>
+*/}
             </table>
           </div>
 

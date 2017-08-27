@@ -1,13 +1,42 @@
 import React from 'react';
-import AttractionItem from './AttractionItem.jsx';
+import AttractionGridItem from './AttractionGridItem.jsx';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {GridList, GridTile} from 'material-ui/GridList';
+
+
+
 
 function Attraction ({attrItems, handleAttrItemState}) {
-
 
   if (attrItems.length > 0) {
     return(
          <div>
-           { attrItems.map((item,index) => <AttractionItem attrItemEntry = {item} key = {index} handleAttrItemState={handleAttrItemState} />)}
+
+           {/*
+              <MuiThemeProvider>
+                <AttractionGridItem
+                  attrItems={attrItems}
+                  handleAttrItemState={handleAttrItemState.bind(this)}
+                />
+              </MuiThemeProvider>
+            */}
+
+
+           {attrItems.map((item,index) => 
+                {
+                  return(
+                    <MuiThemeProvider key={index}>
+                      <AttractionGridItem
+                        attrItem={item}
+                        handleAttrItemState={handleAttrItemState.bind(this)}
+                      />
+                    </MuiThemeProvider> 
+                  )
+                }
+            )}
+            
+
          </div>
        )
   } else {

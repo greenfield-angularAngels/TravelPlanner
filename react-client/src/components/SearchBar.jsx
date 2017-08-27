@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       departureLocation: 'Hong Kong',
-      arrivalLocation: 'Toyko, Japan',
+      arrivalLocation: 'Toyko',
       departureDate: '2017-10-24',
       returnDate: '2017-10-31',
       // histories: [["hong kong", "tokyo", "2017-10-24", "2017-10-31"]]
@@ -91,7 +91,7 @@ class SearchBar extends React.Component {
 
             <RaisedButton 
               label="Search" 
-              secondary={true} 
+              primary={true} 
               onClick={this.handleSearchClick}
             />
 
