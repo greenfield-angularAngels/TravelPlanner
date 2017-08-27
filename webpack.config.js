@@ -13,7 +13,15 @@ module.exports = {
     new webpack.EnvironmentPlugin([
       'QPX_API',
       'APC_AUTH',
-      'APC_SECRET'
+      'APC_SECRET',
+      'clientId',
+      'clientSecret',
+      'darkskyAPI',
+      'geolocationAPI',
+      'MONGODB_URI',
+      'WEATHER_API',
+      'YELP_TOKEN',
+      'GEO_API'
     ])
   ],
   module : {

@@ -1,15 +1,19 @@
 import React from 'react';
 import FoodItem from './FoodItem.jsx';
 
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Grid_RestaurantList from './Grid_RestaurantList.jsx';
-
+import Grid_Dollar_Sign from './Grid_Dollar_Sign.jsx';
 
 const FoodList = ({foodlist,handleFoodItemState}) => {
 
   if (foodlist.length > 0) {
     return (
       <div>
+
+          <Grid_Dollar_Sign />
+
          <MuiThemeProvider>
 
           <Grid_RestaurantList 
