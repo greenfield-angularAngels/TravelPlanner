@@ -20,7 +20,7 @@ export default class TabMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'D',
+      value: 'C',
     };
 
     this.handleChange = this.handleChange.bind(this);

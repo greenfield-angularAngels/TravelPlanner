@@ -5,8 +5,11 @@ class AttractionItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: false
+      selected: false,
+      starColor: 'white'
+
     }
+    this.handleAttrClick = this.handleAttrClick.bind(this);
   }
 
 
@@ -18,10 +21,13 @@ class AttractionItem extends React.Component {
     }, ()=>{
       this.props.handleAttrItemState( this );
     });
+
   }
 
 
   render(){
+
+    return null;
 
     let classes = classnames('attrBackground', {activeAttr: this.state.selected} );
     return(

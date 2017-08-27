@@ -18,12 +18,12 @@ const FoodList = ({foodlist,handleFoodItemState}) => {
           />
 
         </MuiThemeProvider> 
-        { foodlist.map((item,index) => 
+        {/* foodlist.map((item,index) => 
         <FoodItem 
           fooditem={item} 
           key={index} 
           handleFoodItemState={handleFoodItemState}
-        />)}
+        />)*/}
       </div>
     )
   } else {
