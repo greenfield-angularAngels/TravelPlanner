@@ -21,7 +21,7 @@ export default class TripSummary extends React.Component {
     }
   }
 
-  // departureDate={this.props.departureDate} 
+  // returnDate={this.props.returnDate} 
   // arrivalDate={this.props.arrivalDate} 
   // departureLocation={this.props.departureLocation} 
   // arrivalLocation={this.props.arrivalLocation} 
@@ -48,10 +48,10 @@ export default class TripSummary extends React.Component {
         <div>
           <div style={makeBoxWiNoBoder('box', '100%', '10px', 'black')} ></div>
           <h3>
-            depart: {this.props.departureDate + ' ' + 'from ' + this.props.departureLocation} 
+            depart: {this.props.departureDate + ' ' + 'to ' + '<' + this.props.departureLocation + '>'} 
           </h3>
           <h3>
-            return: {this.props.returnDate + ' ' + 'at ' + this.props.arrivalLocation} 
+            return: {this.props.returnDate + ' ' + 'back to ' + '<' + this.props.arrivalLocation + '>'} 
           </h3>
         </div>
       );
